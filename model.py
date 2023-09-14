@@ -8,6 +8,6 @@ class Person(db.Model):
     age = db.Column(db.Integer)
 
 
-    def __init__(self, name, age, email):
+    def __init__(self, name, age):
         self.name = name
         self.age = age
