@@ -53,3 +53,17 @@ python create_db.py ------ Start the API server:
 python app.py -------- The API should now be running locally at http://localhost:5000.
 
 API Endpoints
+
+
+
+
+
+
+Testing the API
+You can use Postman or a testing framework (e.g., pytest) to test the API. Detailed instructions for testing the API can be found in the Testing the API section of the README.
+
+Contributing
+If you'd like to contribute to this project, please follow the guidelines in CONTRIBUTING.md.
+
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
