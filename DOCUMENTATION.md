@@ -1,0 +1,214 @@
+# Person API Documentation
+
+Welcome to the documentation for the Person API. This API allows you to perform CRUD (Create, Read, Update, Delete) operations on person records.
+
+## Table of Contents
+
+- [Standard Request and Response Formats](#standard-request-and-response-formats)
+- [Sample API Usage](#sample-api-usage)
+- [Known Limitations and Assumptions](#known-limitations-and-assumptions)
+- [Setup and Deployment Instructions](#setup-and-deployment-instructions)
+
+---
+
+## Standard Request and Response Formats
+
+### Create a Person (POST /api/<string:name>)
+
+**Request Format**
+
+- HTTP Method: POST
+- URL: `/api/<string:name>`
+
+- **Request Headers:**
+  - Content-Type: application/json
+
+- **Request Body:**
+
+  ```json
+  {
+      "age": integer
+  }
+
+**Response Format**
+
+HTTP Status Code: 201 (Created) on success
+
+**JSON Response Body:**
+   ```json
+  {
+    "message": "Person created successfully"
+  }
+   ```
+### Retrieve a Person (GET /api/string:name)
+
+**Request Format**
+
+HTTP Method: GET
+URL: /api/<string:name>
+
+**Response Format**
+
+HTTP Status Code: 200 (OK) on success
+
+**JSON Response Body:**
+```json
+  {
+    "name": string,
+    "age": integer
+}
+```
+### Update a Person (PUT /api/string:name)
+**Request Format**
+
+HTTP Method: PUT
+
+URL: /api/<string:name>
+
+**Request Headers:**
+
+Content-Type: application/json
+**Request Body:**
+```json
+{
+    "age": integer
+}
+```
+**Response Format**
+
+HTTP Status Code: 200 (OK) on success
+
+**JSON Response Body:**
+```json
+{
+    "message": "Person updated successfully"
+}
+```
+
+### Delete a Person (DELETE /api/string:name)
+**Request Format**
+
+HTTP Method: DELETE
+URL: /api/<string:name>
+
+**Response Format**
+
+HTTP Status Code: 204 (No Content) on success
+No response body
+
+## Sample API Usage
+
+**Creating a Person**
+**Request**
+
+POST /api/John%20Doe HTTP/1.1
+Host: localhost:5000
+
+Content-Type: application/json
+```json
+{
+    "age": 30
+}
+```
+
+**Response**
+```json
+{
+    "message": "Person created successfully"
+}
+```
+
+**Retrieving a Person**
+**Request**
+
+GET /api/John%20Doe HTTP/1.1
+Host: localhost:5000
+
+**Response**
+```json
+{
+    "name": "John Doe",
+    "age": 30,
+    "email": "john@example.com"
+}
+```
+
+**Updating a Person**
+**Request**
+
+PUT /api/John%20Doe HTTP/1.1
+Host: localhost:5000
+
+Content-Type: application/json
+
+{
+    "age": 35,
+    "email": "updated@example.com"
+}
+
+**Response**
+```json
+{
+    "message": "Person updated successfully"
+}
+```
+
+
+**Deleting a Person**
+**Request**
+
+DELETE /api/John%20Doe HTTP/1.1
+Host: localhost:5000
+
+**Response**
+No response body (HTTP Status Code: 204 No Content)
+
+
+
+## Known Limitations and Assumptions
+. The API assumes that each person's name is unique.
+
+. The API uses SQLite as the default database. You can configure it to use other databases such as MySQL.
+
+. Error handling for edge cases, such as non-existent records, is not provided in this basic example.
+
+## Setup and Deployment Instructions
+
+To set up and deploy the API locally or on a server, follow these steps:
+
+Clone the repository to your local machine:
+```bash
+git clone https://github.com/yourusername/person-api.git
+```
+
+Navigate to the project directory:
+```bash
+cd person-api
+```
+
+Install the required Python packages:
+```bash
+pip install -r requirements.txt
+```
+Configure the database settings in config.py.
+
+
+Create the database tables:
+```bash
+python create_db.py
+```
+
+
+Start the API server:
+```bash
+python app.py
+```
+
+
+The API will be accessible at http://localhost:5000.
+You can now use Postman or other tools to interact with the API as described in the Sample API Usage section.
+
+
+### Note: This documentation assumes that you have Postman or a similar tool for testing the API. You can also use tools like curl or write your own code to make HTTP requests to the API endpoints.
+ 
+## That's it! You have successfully set up and deployed the Person API.
