@@ -13,12 +13,12 @@ Welcome to the documentation for the Person API. This API allows you to perform 
 
 ## Standard Request and Response Formats
 
-### Create a Person (POST /api/<string:name>)
+### Create a Person (POST /api)
 
 **Request Format**
 
 - HTTP Method: POST
-- URL: `/api/<string:name>`
+- URL: `/api`
 
 - **Request Headers:**
   - Content-Type: application/json
@@ -27,7 +27,8 @@ Welcome to the documentation for the Person API. This API allows you to perform 
 
   ```json
   {
-      "age": integer
+    "name": string,
+    "age": integer
   }
 
 **Response Format**
@@ -40,12 +41,12 @@ HTTP Status Code: 201 (Created) on success
     "message": "Person created successfully"
   }
    ```
-### Retrieve a Person (GET /api/string:name)
+### Retrieve a Person (GET '/api/<int:user_id>')
 
 **Request Format**
 
 HTTP Method: GET
-URL: /api/<string:name>
+URL: '/api/<int:user_id>'
 
 **Response Format**
 
@@ -58,12 +59,12 @@ HTTP Status Code: 200 (OK) on success
     "age": integer
 }
 ```
-### Update a Person (PUT /api/string:name)
+### Update a Person (PUT '/api/<int:user_id>')
 **Request Format**
 
 HTTP Method: PUT
 
-URL: /api/<string:name>
+URL: '/api/<int:user_id>'>
 
 **Request Headers:**
 
@@ -71,6 +72,7 @@ Content-Type: application/json
 **Request Body:**
 ```json
 {
+    "name": string,
     "age": integer
 }
 ```
@@ -89,7 +91,7 @@ HTTP Status Code: 200 (OK) on success
 **Request Format**
 
 HTTP Method: DELETE
-URL: /api/<string:name>
+URL: '/api/<int:user_id>'>
 
 **Response Format**
 
@@ -101,12 +103,13 @@ No response body
 **Creating a Person**
 **Request**
 
-POST /api/John%20Doe HTTP/1.1
+POST /api HTTP/1.1
 Host: localhost:5000
 
 Content-Type: application/json
 ```json
 {
+    "name": "John Doe",
     "age": 30
 }
 ```
@@ -121,7 +124,7 @@ Content-Type: application/json
 **Retrieving a Person**
 **Request**
 
-GET /api/John%20Doe HTTP/1.1
+GET /api/<int:user_id> HTTP/1.1
 Host: localhost:5000
 
 **Response**
@@ -129,23 +132,22 @@ Host: localhost:5000
 {
     "name": "John Doe",
     "age": 30,
-    "email": "john@example.com"
 }
 ```
 
 **Updating a Person**
 **Request**
 
-PUT /api/John%20Doe HTTP/1.1
+PUT /api/<int:user_id> HTTP/1.1
 Host: localhost:5000
 
 Content-Type: application/json
-
+```json
 {
+    "name": "john doe",
     "age": 35,
-    "email": "updated@example.com"
 }
-
+```
 **Response**
 ```json
 {
@@ -157,7 +159,7 @@ Content-Type: application/json
 **Deleting a Person**
 **Request**
 
-DELETE /api/John%20Doe HTTP/1.1
+DELETE /api/<int:user_id> HTTP/1.1
 Host: localhost:5000
 
 **Response**

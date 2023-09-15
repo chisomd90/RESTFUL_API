@@ -55,21 +55,23 @@ python app.py -------- The API should now be running locally at http://localhost
 ### API Endpoints
 
   ## Create a Person
-Endpoint: POST /api/<string:name>
+Endpoint: POST /api
 
 Description: Create a new person with the given name.
 
 Request Body: JSON data containing person details (name, age, email).
 
 Example Request: 
-  curl -X POST http://localhost:5000/api/John%20Doe -H "Content-Type: application/json" -d '{
+  curl -X POST http://localhost:5000/api/John%20Doe -H "Content-Type: application/json" -d 
+  ```json
+  '{
+  "name": "Chisom Daniel",
   "age": 30,
-  "email": "john@example.com"
 }'
 
 
   ## Retreive a person
-Endpoint: GET /api/<string:name>
+Endpoint: GET /api/<int:user_id>
 
 Description: Retrieve details of a person with the given name.
 
@@ -77,20 +79,22 @@ Example Request:
   curl http://localhost:5000/api/John%20Doe
 
   ## Update a person
-Endpoint: PUT /api/<string:name>
+Endpoint: PUT /api/<int:user_id>
 
 Description: Update details of a person with the given name.
 
 Request Body: JSON data containing updated person details (age, email).
 
 Example Request:
-   curl -X PUT http://localhost:5000/api/John%20Doe -H "Content-Type: application/json" -d '{
-  "age": 35,
-  "email": "updated@example.com"
-}'
+   curl -X PUT http://localhost:5000/api/John%20Doe -H "Content-Type: application/json" -d 
+   ```json
+   '{
+       "name": "john doe",
+       "age": 35,
+    }'
 
   ## Delete a person
-Endpoint: DELETE /api/<string:name>
+Endpoint: DELETE /api/<int:user_id>
 
 Description: Delete a person with the given name.
 
