@@ -68,7 +68,7 @@ Example Request:
   "name": "Chisom Daniel",
   "age": 30,
 }'
-
+```
 
   ## Retreive a person
 Endpoint: GET /api/<int:user_id>
@@ -92,7 +92,7 @@ Example Request:
        "name": "john doe",
        "age": 35,
     }'
-
+```
   ## Delete a person
 Endpoint: DELETE /api/<int:user_id>
 
